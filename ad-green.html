@@ -30,6 +30,12 @@
         width: 100%;
         max-width: 750px;
       }
+      .absolute-video {
+        position: absolute;
+        top: 0;
+        left: -5px;
+        z-index: -1;
+      }
     </style>
   </head>
 
@@ -38,7 +44,23 @@
       <div class="box">
         <img data-src="./img/ad-green/01.png" />
         <img data-src="./img/ad-green/02.png" />
-        <img data-src="./img/ad-green/03.png" />
+        <div style="position: relative;">
+          <img data-src="./img/ad-green/03.png" />
+          <video
+            src="http://rud6oq6s8.hn-bkt.clouddn.com/mikang/mikang-ad-green-03.mp4" 
+            id="play_video_01"
+            class="absolute-video"
+            loop="true"
+            webkit-playsinline="true"
+            playsinline=""
+            preload="auto"
+            style="top: 100px; width: 759px;"
+            x5-video-player-type="h5"
+            x5-video-player-fullscreen="true"
+            autoplay=""
+            muted=""
+          ></video>
+        </div>
         <img data-src="./img/ad-green/04.png" />
         <img data-src="./img/ad-green/05.png" />
         <img data-src="./img/ad-green/06.png" />
@@ -60,7 +82,7 @@
     <!-- 横屏提示  end -->
     <script src="./js/util.js"></script>
     <script>
-      var imgs;
+      var imgs = [];
       window.onscroll = function() {
         lazyLoad(imgs);
       }

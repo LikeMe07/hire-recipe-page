@@ -213,7 +213,7 @@
     <script src="./js/swiper-bundle.min.js"></script>
     <script src="./js/util.js"></script>
     <script>
-      var imgs;
+      var imgs = [];
       window.onscroll = function() {
         lazyLoad(imgs);
       }
@@ -228,7 +228,13 @@
         var vdo = $("video")[0]; //jquery
         vdo.muted = false;
       }, false);
-      var swiper = new Swiper(".swiper-container");
+      var swiper = new Swiper(".swiper-container", {
+        loop: true,
+      });
+      setInterval(function () {
+        swiper.slideNext(1000);
+      }, 3000);
+
       var u = navigator.userAgent;
       var isAndroid = u.indexOf("Android") > -1 || u.indexOf("Adr") > -1; //android终端
       var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
