@@ -30,6 +30,9 @@
         width: 100%;
         max-width: 750px;
       }
+      .wrap {
+        height: 7206px;
+      }
       .swiper-container {
         width: 100%;
         height: 100%;
@@ -67,20 +70,20 @@
       .link-btn {
         position: absolute;
         display: block;
-        background-color: #2b84dc91;
-        width: 420px;
-        height: 70px;
-        top: 220px;
+        /* background-color: #2b84dc91; */
+        width: 620px;
+        height: 130px;
+        top: 180px;
         left: 50%;
-        margin-left: -210px;
+        margin-left: -310px;
       }
     </style>
   </head>
 
   <body style="max-width: 750px; margin: 0 auto;">
     <div class="wrap">
-      <img src="./img/index/01.png" class="dibu" />
-      <div class="box">
+      <img data-src="./img/index/01.png" class="dibu" />
+      <div class="box" style="top: -57px;">
         <div class="bnt">
           <!-- Swiper start -->
           <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
@@ -102,16 +105,16 @@
                 ></video>
               </div>
               <div class="swiper-slide swiper-slide-next" style="width: 750px">
-                <img src="./img/index/02-2.png" class="p2" />
+                <img data-src="./img/index/02-2.png" class="p2" />
               </div>
               <div class="swiper-slide" style="width: 750px">
-                <img src="./img/index/02-3.jpg" class="p3" />
+                <img data-src="./img/index/02-3.jpg" class="p3" />
               </div>
               <div class="swiper-slide" style="width: 750px">
-                <img src="./img/index/02-4.jpg" class="p4" />
+                <img data-src="./img/index/02-4.jpg" class="p4" />
               </div>
               <div class="swiper-slide" style="width: 750px">
-                <img src="./img/index/02-5.jpg" class="p5" />
+                <img data-src="./img/index/02-5.jpg" class="p5" />
               </div>
             </div>
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
@@ -134,7 +137,7 @@
           muted=""
         ></video>
         <div class="p1_2">
-          <img src="./img/index/04.png" />
+          <img data-src="./img/index/04.png" />
           <video
             src="http://rud6oq6s8.hn-bkt.clouddn.com/mikang/mikang-ad-index-04.mp4" 
             id="play_video_04"
@@ -151,14 +154,14 @@
           ></video>
         </div>
         <div class="p1_3">
-          <img src="./img/index/05.png" />
+          <img data-src="./img/index/05.png" />
           <a href="./ad-red.html" class="link-btn"></a>
         </div>
         <div class="p1_4">
-          <img src="./img/index/06.gif" />
+          <img data-src="./img/index/06.gif" />
         </div>
         <div class="p1_5">
-          <img src="./img/index/07.png" />
+          <img data-src="./img/index/07.png" />
           <a href="./ad-green.html" class="link-btn"></a>
         </div>
         <video
@@ -176,7 +179,7 @@
           muted=""
         ></video>
         <div class="p1_6">
-          <img src="./img/index/09.png"/>
+          <img data-src="./img/index/09.png"/>
           <video
             src="http://rud6oq6s8.hn-bkt.clouddn.com/mikang/mikang-ad-index-09.mp4" 
             id="play_video_09"
@@ -193,7 +196,7 @@
           ></video>
         </div>
         <div class="p_8">
-          <img src="./img/index/10.png"/>
+          <img data-src="./img/index/10.png"/>
           <a href="./ad-white.html" class="link-btn"></a>
         </div>
       </div>
@@ -208,7 +211,18 @@
     <!-- 横屏提示  end -->
     <script src="./js/jquery.min2.0.3.js"></script>
     <script src="./js/swiper-bundle.min.js"></script>
-
+    <script src="./js/util.js"></script>
+    <script>
+      var imgs;
+      window.onscroll = function() {
+        lazyLoad(imgs);
+      }
+      window.onload = function () {
+        var wrapContainer = document.querySelector('.wrap');
+        imgs = wrapContainer.querySelectorAll('img');
+        lazyLoad(imgs);
+      }
+    </script>
     <script>
       document.body.addEventListener('mousedown', function () {
         var vdo = $("video")[0]; //jquery

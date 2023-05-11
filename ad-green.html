@@ -36,18 +36,18 @@
   <body style="max-width: 750px; margin: 0 auto;">
     <div class="wrap">
       <div class="box">
-        <img src="./img/ad-green/01.png" />
-        <img src="./img/ad-green/02.png" />
-        <img src="./img/ad-green/03.png" />
-        <img src="./img/ad-green/04.png" />
-        <img src="./img/ad-green/05.png" />
-        <img src="./img/ad-green/06.png" />
-        <img src="./img/ad-green/07.png" />
-        <img src="./img/ad-green/08.png" />
-        <img src="./img/ad-green/09.png" />
-        <img src="./img/ad-green/10.png" />
-        <img src="./img/ad-green/11.png" />
-        <img src="./img/ad-green/12.png" />
+        <img data-src="./img/ad-green/01.png" />
+        <img data-src="./img/ad-green/02.png" />
+        <img data-src="./img/ad-green/03.png" />
+        <img data-src="./img/ad-green/04.png" />
+        <img data-src="./img/ad-green/05.png" />
+        <img data-src="./img/ad-green/06.png" />
+        <img data-src="./img/ad-green/07.png" />
+        <img data-src="./img/ad-green/08.png" />
+        <img data-src="./img/ad-green/09.png" />
+        <img data-src="./img/ad-green/10.png" />
+        <img data-src="./img/ad-green/11.png" />
+        <img data-src="./img/ad-green/12.png" />
       </div>
     </div>
     <!-- 横屏提示 start -->
@@ -58,5 +58,17 @@
       </div>
     </div>
     <!-- 横屏提示  end -->
+    <script src="./js/util.js"></script>
+    <script>
+      var imgs;
+      window.onscroll = function() {
+        lazyLoad(imgs);
+      }
+      window.onload = function () {
+        var wrapContainer = document.querySelector('.wrap');
+        imgs = wrapContainer.querySelectorAll('img');
+        lazyLoad(imgs);
+      }
+    </script>
   </body>
 </html>
